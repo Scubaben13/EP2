@@ -57,6 +57,29 @@ def afundados(frota, tabuleiro):
 
 
 
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+    posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
+
+    for pos in posicoes:
+        if pos[0] > 9 or pos[1] > 9:
+            return False
+
+    todas_posicoes = []
+    for lista_navios in frota.values():
+        for posicoes_navio in lista_navios:
+            for p in posicoes_navio:
+                todas_posicoes.append(p)
+
+    for pos in posicoes:
+        if pos in todas_posicoes:
+            return False
+
+    return True
+
+
+
+
+
 
 
 
